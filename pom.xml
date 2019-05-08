@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jooby</groupId>
+    <artifactId>jooby-project</artifactId>
+    <version>1.5.0</version>
+  </parent>
+
+  <artifactId>sample-jooby</artifactId>
+  <groupId>me.roybailey</groupId>
+
+  <properties>
+    <jooby.version>1.6.0</jooby.version>
+    <spek.version>1.1.5</spek.version>
+
+    <!-- Startup class -->
+    <application.class>me.roybailey.jooby.AppKt</application.class>
+  </properties>
+
+  <dependencies>
+
+    <!-- Server -->
+    <dependency>
+      <groupId>io.github.microutils</groupId>
+      <artifactId>kotlin-logging</artifactId>
+      <version>1.6.26</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jooby</groupId>
+      <artifactId>jooby-netty</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jooby</groupId>
+      <artifactId>jooby-lang-kotlin</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jooby</groupId>
+      <artifactId>jooby-jackson</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jooby</groupId>
+      <artifactId>jooby-hbs</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jooby</groupId>
+      <artifactId>jooby-pac4j2</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.pac4j</groupId>
+      <artifactId>pac4j-oauth</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.pac4j</groupId>
+      <artifactId>pac4j-oidc</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.pac4j</groupId>
+      <artifactId>pac4j-jwt</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jooby</groupId>
+      <artifactId>jooby-neo4j</artifactId>
+    </dependency>
+
+    <!-- Test -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jetbrains.spek</groupId>
+      <artifactId>spek-api</artifactId>
+      <version>${spek.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-runner</artifactId>
+      <version>1.0.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jetbrains.spek</groupId>
+      <artifactId>spek-junit-platform-engine</artifactId>
+      <version>${spek.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.nhaarman</groupId>
+      <artifactId>mockito-kotlin</artifactId>
+      <version>1.5.0</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+    <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+
+    <plugins>
+      <plugin>
+        <artifactId>kotlin-maven-plugin</artifactId>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+
+          <execution>
+            <id>test-compile</id>
+            <goals>
+              <goal>test-compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Build fat jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
