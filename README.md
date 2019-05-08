@@ -1,10 +1,8 @@
 # sample-jooby
 
-Sample project for exploring [Jooby](https://jooby.org/)
+Sample project for exploring [Jooby](https://jooby.org/) with [Neo4j](https://neo4j.com/download/) and Google OIDC login
 
 ## Getting Started
-
-You'll need an instance of Neo4j database to connect to 
 
 * build `mvn clean install`
 * run `mvn jooby:run`
@@ -16,10 +14,11 @@ You'll need an instance of Neo4j database to connect to
 
 ## Notes
 
-Overall a nice framework (Jooby v1.6) but the documentation is light which makes building more complex routing, authentication, module flows problematic.
-Like the module approach and supported plugins, goes beyond other similar frameworks (excluding Spring)
+Overall a nice framework (Jooby v1.6).
+The documentation is light which makes building more complex routing, authentication, module flows problematic.
+However, like the module approach and supported modules as this goes beyond other similar frameworks (excluding Spring).
 
-* DONE: Wire up Pac4 security
+* DONE: Wire up Pac4 security to use Google login
 * DONE: Wire up embedded Vue pages for todo list handling 
 * DONE: Add Neo4j module and connect to local database or memory database 
 * DONE: Basic build and run from Jooby starter sample 
